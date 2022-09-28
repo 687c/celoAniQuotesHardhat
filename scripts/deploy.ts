@@ -1,7 +1,10 @@
 import { ethers } from "hardhat";
 
 async function main() {
-	console.log('deployment ongoing');
+	const greeterContract = await ethers.getContractFactory("AniQuotes");
+
+	let addr = await greeterContract.deploy();
+	console.log("greeter deployed at ", addr.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
